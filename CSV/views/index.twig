@@ -1,0 +1,44 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row mt-4"><h1>{{title}}</h1></div>
+        <div class="row mb-2">
+            {%  if sort == 'up' %}
+                <div class="col"><a href="/">Not sorted</a></div>
+                <div class="col"><a href="/sortedDown">Descending order sorted by average</a></div>
+            {%  elseif sort == 'down' %}
+                 <div class="col"><a href="/sortedUp">Ascending order sorted by average</a></div>
+                <div class="col"><a href="/">Not sorted</a></div>
+            {%  else %}
+                <div class="col"> <a href="/sortedUp">Ascending order sorted by average</a></div>
+                <div class="col"> <a href="/sortedDown">Descending order sorted by average</a></div>
+            {% endif %}
+        </div>
+        <div class="row">
+          <table class="table w-50">
+              <thead>
+              <tr>
+                  <th scope="col">Name</th>
+                {% for subject in subjects %}
+                  <th scope="col">{{ subject }}</th>
+                {% endfor %}
+                  <th scope="col">Average</th>
+              </tr>
+              </thead>
+
+            {% for student in students %}
+              <tr>
+                  <td class="table-info"> {{ student.Name }}</td>
+                {% for subject in subjects %}
+                  {%  if student[subject] is defined %}
+                      <td> {{ student[subject] }}  </td>
+                  {%  endif %}
+                {% endfor %}
+                  <td class="table-success"> {{ student['Average'] }}</td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-3" style="max-width: 100%">
+    <a class="navbar-brand" >Books catalog</a>
+    <span class="nav-item"><a class="nav-link ml-auto" href="/">Main page</a></span>
+</nav>
+
+<form class="m-3 p-2 border" id="targetForm" action="/data/add" method="post">
+    <div class="form-group m-3">
+        <label  class="col-3" >Book title</label>
+        <input type="text"  name="title" placeholder="Enter title" class="col-5" required="true"/>
+    </div>
+    <div class="form-group m-3">
+        <label class="col-3">Book author</label>
+        <input type="text"  name="author" placeholder="Enter author" class="col-5" required="true"/>
+    </div>
+    <div class="form-group m-3 ">
+        <label class="col-3">Book description</label>
+        <textarea name="description" class="col-5" rows="5" id="descInput" placeholder="Enter description" aread-descibedby="descHelp"></textarea>
+        <p id="descHelp" class="form-text text-muted col-5 offset-5">
+            Enter brief description for book
+        </p>
+    </div>
+    <button  type="submit" class="btn btn-primary ml-3" >Submit</button>
+    <button  type="reset" class="btn btn-secondary ml-3">Reset</button>
+</form>
+<!--<script type="text/javascript" src="javascripts/admin.js"></script>-->
+</body>
+</html>
