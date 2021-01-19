@@ -2,7 +2,7 @@ const express = require('express');
 const messagesRouter = express.Router();
 const emailsRouter = express.Router();
 const { EmailInfo, Message } = require('./dao');
-const sendMail = require('./mail')
+const sendMail = require('./mail');
 
 messagesRouter.get('/', async (req, res) => {
     Message.find().then(data => res.send(data));
@@ -18,7 +18,7 @@ messagesRouter.post('/add', async (req, res) => {
 
 
 messagesRouter.post('/send', async (req, res) => {
-    const emails = req.body.emails;
+    const emails = JSON.parse(req.body.emails);
     const messageText = req.body.message;
 
     sendMail(emails, messageText)

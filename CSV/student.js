@@ -17,9 +17,9 @@ function getString(fileName) {
                     .map(s => s.trim());
 }
 function getStudents(){
-    const grades = getString('data/grades.csv');
-    const studentsNames =  getString('data/students.txt');
-    const subjects =  getString('data/subjects.txt');
+    const grades = getString('../data/grades.csv');
+    const studentsNames =  getString('../data/students.txt');
+    const subjects =  getString('../data/subjects.txt');
     const students = [];
     studentsNames.forEach((name, i) => {
         const sgrades = grades[i].split(',').map(i => parseInt(i));
@@ -35,8 +35,8 @@ function rand(min, max) {
 }
 
 function generateGrades(){
-    const students = fs.readFileSync('./students.txt').toString().split('\n');
-    const subjects = fs.readFileSync('./subjects.txt').toString().split('\n');
+    const students = fs.readFileSync('./data/students.txt').toString().split('\n');
+    const subjects = fs.readFileSync('./data/subjects.txt').toString().split('\n');
     var grades = '';
     for(let r=0; r<students.length; ++r){
         const subL = rand(2, subjects.length);
@@ -45,6 +45,6 @@ function generateGrades(){
         }
         grades +=rand(60, 100)+'\n';
     }
-    fs.writeFileSync('./grades.csv', grades);
+    fs.writeFileSync('./data/grades.csv', grades);
 }
 //generateGrades();

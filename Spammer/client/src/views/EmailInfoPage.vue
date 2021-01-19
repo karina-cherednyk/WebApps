@@ -41,7 +41,9 @@ export default {
     methods: {
         removeId(id) {
             let aid = this.emails.find(x => x._id == id );
+            console.log(this.emails);
             this.emails.splice(aid, 1);
+            console.log(this.emails)
         },
         addNew(data){
             this.emails.push(data)

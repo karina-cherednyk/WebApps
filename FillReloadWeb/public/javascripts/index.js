@@ -26,8 +26,10 @@ function fillContent(){
 const socketUrl = `ws://localhost:4000/data`;
 const socket = new WebSocket(socketUrl);
 
-socket.onopen = () =>
+
+socket.onopen = () => {
     console.log('Socket connection opened');
+};
 
 socket.onclose = () => console.log('Socket connection closed');
 
