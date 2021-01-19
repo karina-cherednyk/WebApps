@@ -1,0 +1,22 @@
+{
+  "name": "codetraining",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.7",
+    "twig": "~0.10.3",
+    "mongoose": "~5.11.12",
+    "nodemailer": "~6.4.17"
+  },
+  "nodemonConfig": {
+    "ext": "js,twig,mjs,json"
+  }
+}

@@ -1,0 +1,49 @@
+<style>
+    a {
+        color: gainsboro;
+    }
+    a.current {
+        color: white;
+    }
+    nav,  button[type=submit], nav button{
+        background-color: {{ config.color }};
+    }
+    nav button {
+        border: none;
+    }
+    span {
+        visibility: hidden;
+    }
+
+    span.error {
+        color: red;
+        font-size: 0.8rem;
+        visibility: visible;
+    }
+
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark" >
+    <a class="navbar-brand" href="/"><strong> {{ config.title[lang] }}</strong></a>
+    <button type="button" class="navbar-toggle collapsed ml-auto mr-2" data-toggle="collapse" data-target="#navbar-main">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar-main">
+
+        <ul class="navbar-nav mr-auto">
+        {%  for pageLink in ['main', 'trainings', 'about', 'admin/addTraining', 'admin/checkAppliers'] %}
+            <li class="nav-item {{ page==pageLink ? 'active': '' }}">
+                <a class="nav-link" href="/{{ pageLink}}">
+                    <strong> {{ labels.menu[pageLink] }} </strong>
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+
+    </div>
+    <div align="right" >
+            <a href="/{{ page }}?lang=ua" class="{{ lang=='ua' ? 'current' : '' }}">{{ labels.menu.ua }}</a>
+            <a href="/{{ page }}?lang=en"  class="{{ lang=='en' ? 'current' : '' }}">{{ labels.menu.en }}</a>
+    </div>
+</nav>
+

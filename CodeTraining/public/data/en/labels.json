@@ -1,0 +1,42 @@
+{
+  "form": {
+    "name": "name",
+    "surname": "suraname",
+    "email": "email",
+    "phone": "phone",
+    "details": "details",
+    "enter": "Enter",
+    "apply" : "Apply",
+    "clear": "Clear form",
+    "mandatory": "This field is mandatory",
+    "emailError": "Incorrect email",
+    "phoneError": "Incorrect phone"
+  },
+  "menu": {
+    "main": "Main page",
+    "trainings": "Training catalog",
+    "about": "About us",
+    "admin/addTraining": "Add trainings",
+    "admin/checkAppliers":  "Check new appliers",
+    "en": "EN",
+    "ua": "UA"
+  },
+  "trainings": {
+    "show": "Show details",
+    "hide": "Hide details",
+    "add": "Add training",
+    "name": "name",
+    "slogan": "slogan",
+    "details": "details",
+    "reset": "Clear form",
+    "ending": "of training",
+    "in_en": "in english",
+    "in_ua": "in ukrainian"
+  },
+  "appliers": {
+    "accept": "Accept",
+    "decline": "Decline",
+    "accepted": "Accepted",
+    "declined": "Declined"
+  }
+}

@@ -1,0 +1,63 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <div id="appliers" class="m-5">
+        {%  for applier in appliers  %}
+            <div class="card mb-2">
+            <div class="card-body">
+                <div class="card-title">{{ applier.name }} {{ applier.surname }}</div>
+                <ul>
+                    <li>{{ applier.email }}</li>
+                    <li>{{ applier.phone }}</li>
+                </ul>
+                <div class="card-text mb-2" >{{ applier.details }}</div>
+                <status-block
+                    aid="{{ applier._id }}"
+                    status="{{ applier.status }}"
+                    accept="{{ labels.appliers.accept }}"
+                    decline="{{ labels.appliers.decline }}"
+                    accepted="{{ labels.appliers.accepted }}"
+                    declined="{{ labels.appliers.declined }}"
+                ></status-block>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.component('status-block', {
+            props: ['aid', 'status', 'accept', 'decline', 'accepted', 'declined'],
+            delimiters: ['{', '}'],
+            data(){
+                return {
+                   wstatus: this.status
+                }
+            },
+            methods:{
+                acceptMe(){
+                  changeStatus(this.aid, 'accepted');
+                  this.wstatus = 'accepted';
+                },
+                declineMe(){
+                  changeStatus(this.aid, 'declined');
+                  this.wstatus = 'declined';
+                }
+            },
+            template:  `
+            <div >
+                 <div v-if="wstatus=='not seen'">
+                    <button class="btn btn-success" @click="acceptMe">{accept}</button>
+                    <button class="btn btn-danger" @click="declineMe">{decline}</button>
+                </div>
+                <div v-else
+                    :class="wstatus=='accepted' ? 'text-success' : 'text-danger'">
+                   <p> { wstatus=='accepted' ? accepted: declined } </p>
+                </div>
+            </div>`
+        });
+        new Vue({
+            el: "#appliers"
+        });
+    </script>
+{% endblock %}

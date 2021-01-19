@@ -1,0 +1,10 @@
+{
+  "title": {
+    "en": "Programing trainings",
+    "ua": "Тренінги з програмування"
+  },
+  "image": "programming.jpg",
+  "domain": "trainings.com.ua",
+  "color": "teal",
+  "emailConfirmation": true
+}

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+{% include './components/header.twig' %}
+  <body>
+    {% include './components/menu.twig' %}
+    {% block body %}{% endblock %}
+    {% include "./components/scripts.twig" %}
+  </body>
+</html>

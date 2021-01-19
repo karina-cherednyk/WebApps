@@ -1,0 +1,47 @@
+<form class="border p-2" id="targetForm" action="/data/appliers/add" method="post">
+    <div class="form-group m-3">
+        <label id="nameLbl" class="col-5" ></label>
+        <input id="name" type="text"  name="name" />
+        <span id="nameMsg" class="col-5"></span>
+    </div>
+    <div class="form-group m-3">
+        <label id="surnameLbl" class="col-5"></label>
+        <input id="surname" type="text"  name="surname"  />
+        <span id="surnameMsg" class="col-5"></span>
+    </div>
+    <div class="form-group m-3">
+        <label id="emailLbl" class="col-5"></label>
+        <input id="email" type="text"  name="email" />
+        <span id="emailMsg" class="col-5"></span>
+    </div>
+    <div class="form-group m-3">
+        <label id="phoneLbl" class="col-5"></label>
+        <input id="phone" type="text"  name="phone"/>
+        <span id="phoneMsg"class="col-5"></span>
+    </div>
+    <div class="form-group mt-3 ml-3 mr-3 mb-2">
+        <label id="detailsLbl" class="col-5"></label>
+        <textarea id="details" name="details" class="col-6" rows="5"></textarea>
+        <span id="detailsMsg"class="col-5"></span>
+    </div>
+    <div class="row ml-3 mb-2">
+    <button id="submit" type="submit" class="btn btn-dark mr-2" ></button>
+    <button  id="reset" type="reset" class="btn btn-secondary" onclick="clearMsg()"></button>
+    </div>
+</form>
+<script>
+    let name = "{{ labels.form.name }}";
+    let surname = '{{ labels.form.surname }}';
+    let email = '{{ labels.form.email }}';
+    let phone = '{{ labels.form.phone }}';
+    let details = '{{ labels.form.details }}';
+    let enter = '{{ labels.form.enter }}';
+    let apply = '{{ labels.form.apply }}';
+    let clear = '{{ labels.form.clear }}';
+    let submit = '{{ labels.form.apply }}';
+    let reset = '{{ labels.form.clear }}';
+    let mandatory = "{{ labels.form.mandatory }}";
+    let emailError = '{{ labels.form.emailError }}';
+    let phoneError = '{{ labels.form.phoneError }}';
+    let emailConfirmation = {{ config.emailConfirmation }};
+</script>

@@ -1,0 +1,56 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <div class="m-5 p-2">
+    <form class="border p-1" id="trainForm" action="/data/trainings/add" method="post">
+        <div class="form-group m-3">
+            <div class="row">
+            <label id="nameLbl" class="col-3" ></label>
+            <input id="nameEn" type="text"  class="col-3 mb-2" />
+            <input id="nameUa" type="text"  class="col-3 mb-2"  />
+            </div>
+            <div class="row">
+            <span id="nameEnMsg" class="col col-3 offset-3"></span>
+            <span id="nameUaMsg" class="col col-3 "></span>
+            </div>
+        </div>
+        <div class="form-group m-3">
+            <div class="row">
+                <label id="sloganLbl" class="col-3" ></label>
+                <input id="sloganEn" type="text"  class="col-3 mb-2" />
+                <input id="sloganUa" type="text"  class="col-3 mb-2"  />
+            </div>
+            <div class="row">
+                <span id="sloganEnMsg" class="col col-3 offset-3"></span>
+                <span id="sloganUaMsg" class="col col-3 "></span>
+            </div>
+        </div>
+        <div class="form-group mt-3 ml-3 mr-3 mb-2">
+            <div class="row">
+            <label id="detailsLbl" class="col-3"></label>
+            <textarea id="detailsEn" class="col-3 mb-2" rows="5"></textarea>
+            <textarea id="detailsUa"  class="col-3 mb-2" rows="5"></textarea>
+            </div>
+            <div class="row">
+            <span id="detailsEnMsg" class="co col-3 offset-3"></span>
+            <span id="detailsUaMsg" class="col col-3 "></span>
+            </div>
+        </div>
+        <div class="row ml-3 mb-2">
+            <button id="submit" type="submit" class="btn btn-dark mr-2" ></button>
+            <button  id="reset" type="reset" class="btn btn-secondary" onclick="clearMsg()"></button>
+        </div>
+    </form>
+    </div>
+<script>
+    let name = "{{ labels.trainings.name }}";
+    let slogan = "{{ labels.trainings.slogan }}";
+    let details = '{{ labels.trainings.details }}';
+    let ending = '{{ labels.trainings.ending }}';
+    let submit = '{{ labels.trainings.add }}';
+    let reset = '{{ labels.form.clear }}';
+    let inEn = '{{ labels.trainings.in_en }}';
+    let inUa = '{{ labels.trainings.in_ua }}';
+    let mandatory = "{{ labels.form.mandatory }}";
+</script>
+{% endblock %}

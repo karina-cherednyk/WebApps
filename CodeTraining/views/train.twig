@@ -1,0 +1,44 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <div id="trainings" class="m-5">
+        {% for training in trainings %}
+             <training
+                     name="{{ training.name }}"
+                     slogan="{{ training.slogan }}"
+                     details="{{ training.details }}"
+                     id="{{ loop.index }}"
+             ></training>
+        {% endfor %}
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.component('training', {
+            props: ['name', 'slogan', 'details', 'id'],
+            delimiters: ['{', '}'],
+            data(){
+                let items = this.details.trim().split('\n');
+                 return {full: false, items: items};
+            },
+            template:  `
+            <div class="card mb-2">
+                <div class="card-body">
+                    <div class="card-title">{ name }</div>
+                    <div class="card-subtitle">{ slogan }</div>
+                    <a class="btn btn-light border"  v-on:click="full = !full">
+                            { full ? '{{ labels.trainings.hide }}' : '{{ labels.trainings.show }}' }</a>
+                    <div class="card-text" v-if="full">
+                    <ul>
+                        <li v-for="item in items">{ item }</li>
+                    </ul>
+                    </div>
+                </div>
+            </div>`
+        });
+        new Vue({
+            el: "#trainings"
+        });
+    </script>
+
+{% endblock %}
+
